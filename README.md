@@ -16,8 +16,8 @@ printf("Value[%s]\n", val);
 ```
 
 # Configure and make:
-git clone https://github.com/red-9m/librjson.git
-git submodule update --init
+git clone https://github.com/red-9m/librjson.git  
+git submodule update --init  
 cmake .
 
 # Compile library:
