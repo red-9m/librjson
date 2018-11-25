@@ -47,6 +47,6 @@ target_compile_definitions(rjson-sample PRIVATE ${_COMPILE_DEF})
 target_link_libraries(rjson-sample rjson)
 
 # Install
-if (LIBRJSON_INSTALL_PATH)
+if (RJSON_INSTALL_PATH)
     install(TARGETS librjson LIBRARY DESTINATION ${RJSON_INSTALL_PATH})
 endif()
