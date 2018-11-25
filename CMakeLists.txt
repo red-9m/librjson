@@ -48,5 +48,5 @@ target_link_libraries(rjson-sample rjson)
 
 # Install
 if (RJSON_INSTALL_PATH)
-    install(TARGETS librjson LIBRARY DESTINATION ${RJSON_INSTALL_PATH})
+    install(TARGETS rjson LIBRARY DESTINATION ${RJSON_INSTALL_PATH})
 endif()
