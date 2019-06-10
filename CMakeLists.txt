@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.14)
 project (rjson-project C CXX)
 
 if(POLICY CMP0065)
@@ -35,8 +35,7 @@ set(_LINK_OPT "-flto -fuse-ld=gold")
 set(_COMPILE_DEF -D_POSIX_C_SOURCE=199309L)
 
 # rjson
-#target_include_directories(rjson PRIVATE rapidjson/include)
-target_include_directories(rjson PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
+target_include_directories(rjson PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}> $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/rapidjson/include>)
 set_target_properties(rjson PROPERTIES CXX_STANDARD 11 CXX_STANDARD_REQUIRED ON CXX_EXTENSIONS OFF)
 target_compile_options(rjson PRIVATE ${_COMPILE_OPT})
 set_target_properties(rjson PROPERTIES LINK_FLAGS ${_LINK_OPT})
@@ -51,5 +50,4 @@ target_compile_definitions(rjson-sample PRIVATE ${_COMPILE_DEF})
 target_link_libraries(rjson-sample rjson)
 
 # Install
-install(TARGETS rjson LIBRARY)
-install(TARGETS rjson PUBLIC_HEADER)
+install(TARGETS rjson LIBRARY PUBLIC_HEADER)
